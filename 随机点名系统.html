@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            margin-bottom: 0px;
+            text-align: center;
+            line-height: 200px;
+            background-color: rgb(113, 97, 97);
+            border: 10px solid orange;
+            border-radius: 50%;
+            font-size: 38px;
+            color: #fff;
+            box-shadow: 2px 2px 40px skyblue;
+        }
+        
+        button {
+            width: 150px;
+            height: 60px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 30%;
+            color: orange;
+            font-size: 25px;
+        }
+        
+        .father {
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 6px solid olive;
+            background: url(./images/bg.jpg);
+        }
+        
+        h3 {
+            color: #fff;
+            text-align: center;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <h3>点名系统</h3>
+        <div class="box">
+            start
+        </div>
+        <button>stop</button>
+    </div>
+    <script>
+        let btn = document.querySelector('button');
+        let arr = ['张航辉', '李瑞峰', '嫣明娇', '吕旭杨', '陈范范', '杨雨晴', '商浩楠', '刘珂', '任玉康', '冀书悦', '王松森', '郭冰倩', '孙严鹏', '周家举', '陶晓丽', '王宏钦', '朱豪', '宋龙辉'];
+        let box = document.querySelector('.box');
+        let timer1;
+        box.addEventListener('click', function() {
+            clearInterval(timer1);
+            timer1 = setInterval(function() {
+                let ran = parseInt(Math.random() * (arr.length));
+                box.innerHTML = arr[ran];
+            }, 200)
+        })
+        btn.addEventListener('click', function() {
+            box.style.fontSize = '60px'
+            box.style.color = 'orange';
+            clearInterval(timer1);
+            timer1 = setInterval(function() {
+                let ran = parseInt(Math.random() * (arr.length));
+                box.innerHTML = arr[ran];
+            }, 600)
+            setTimeout(function() {
+                clearInterval(timer1)
+            }, 2500)
+        })
+    </script>
+</body>
+
+</html>
